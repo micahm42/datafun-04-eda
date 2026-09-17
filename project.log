@@ -780,3 +780,300 @@ Streams (M)     200.0  165.773550  290.454513   0.1000  10.000000   44.19500  19
 2026-09-17 17:46:11 | INFO | P04 | -------------------------------
 2026-09-17 17:46:11 | INFO | P04 | In a script, call plt.show() at the end to display all charts.
 2026-09-17 17:46:11 | INFO | P04 | Close all chart windows (with the close button) to continue.
+2026-09-17 18:10:17 | INFO | P04 | === RUN START ===
+2026-09-17 18:10:17 | INFO | P04 | project=P04 - EXPLORATORY DATA ANALYSIS
+2026-09-17 18:10:17 | INFO | P04 | repo_dir=datafun-04-eda
+2026-09-17 18:10:17 | INFO | P04 | python=3.14.7
+2026-09-17 18:10:17 | INFO | P04 | os=Windows 11
+2026-09-17 18:10:17 | INFO | P04 | shell=powershell
+2026-09-17 18:10:17 | INFO | P04 | cwd=.
+2026-09-17 18:10:17 | INFO | P04 | github_actions=False
+2026-09-17 18:10:17 | INFO | P04 | ===================================
+2026-09-17 18:10:17 | INFO | P04 | START main()
+2026-09-17 18:10:17 | INFO | P04 | ===================================
+2026-09-17 18:10:17 | INFO | P04 | -------------------------------
+2026-09-17 18:10:17 | INFO | P04 | 01. LOAD the data.
+2026-09-17 18:10:17 | INFO | P04 | -------------------------------
+2026-09-17 18:10:17 | INFO | P04 | Loading dataset: data\spotify.csv
+2026-09-17 18:10:17 | INFO | P04 | -------------------------------
+2026-09-17 18:10:17 | INFO | P04 | 02. INSPECT the data.
+2026-09-17 18:10:17 | INFO | P04 | -------------------------------
+2026-09-17 18:10:17 | DEBUG | P04 | 
+DATA INSPECTION
+
+Grain:
+one song or track
+
+Shape:
+200 rows
+11 columns
+
+Columns:
+['Track', 'Artist', 'Album', 'Genre', 'Duration (min)', 'Tempo (BPM)', 'Energy', 'Danceability', 'Loudness (dB)', 'Popularity', 'Streams (M)']
+
+2026-09-17 18:10:17 | INFO | P04 | 
+DATA INSPECTION
+
+Grain:
+one song or track
+
+Shape:
+200 rows
+11 columns
+
+Columns:
+['Track', 'Artist', 'Album', 'Genre', 'Duration (min)', 'Tempo (BPM)', 'Energy', 'Danceability', 'Loudness (dB)', 'Popularity', 'Streams (M)']
+
+2026-09-17 18:10:17 | INFO | P04 | -------------------------------
+2026-09-17 18:10:17 | INFO | P04 | 03. CHECK data quality.
+2026-09-17 18:10:17 | INFO | P04 | -------------------------------
+2026-09-17 18:10:17 | DEBUG | P04 | 
+            column    dtype  non_missing_count  missing_count  missing_pct  unique_count
+0            Track      str                200              0          0.0           200
+1           Artist      str                200              0          0.0            50
+2            Album      str                200              0          0.0            93
+3            Genre      str                200              0          0.0            10
+4   Duration (min)  float64                200              0          0.0           142
+5      Tempo (BPM)  float64                200              0          0.0           174
+6           Energy  float64                200              0          0.0           194
+7     Danceability  float64                200              0          0.0           199
+8    Loudness (dB)  float64                200              0          0.0           178
+9       Popularity    int64                200              0          0.0            75
+10     Streams (M)  float64                200              0          0.0           179
+2026-09-17 18:10:17 | INFO | P04 | 
+            column    dtype  non_missing_count  missing_count  missing_pct  unique_count
+0            Track      str                200              0          0.0           200
+1           Artist      str                200              0          0.0            50
+2            Album      str                200              0          0.0            93
+3            Genre      str                200              0          0.0            10
+4   Duration (min)  float64                200              0          0.0           142
+5      Tempo (BPM)  float64                200              0          0.0           174
+6           Energy  float64                200              0          0.0           194
+7     Danceability  float64                200              0          0.0           199
+8    Loudness (dB)  float64                200              0          0.0           178
+9       Popularity    int64                200              0          0.0            75
+10     Streams (M)  float64                200              0          0.0           179
+2026-09-17 18:10:17 | DEBUG | P04 | 
+Track             0
+Artist            0
+Album             0
+Genre             0
+Duration (min)    0
+Tempo (BPM)       0
+Energy            0
+Danceability      0
+Loudness (dB)     0
+Popularity        0
+Streams (M)       0
+dtype: int64
+2026-09-17 18:10:17 | INFO | P04 | 
+Missing values:
+Track             0
+Artist            0
+Album             0
+Genre             0
+Duration (min)    0
+Tempo (BPM)       0
+Energy            0
+Danceability      0
+Loudness (dB)     0
+Popularity        0
+Streams (M)       0
+dtype: int64
+2026-09-17 18:10:17 | INFO | P04 | Duplicate rows detected: 0
+2026-09-17 18:10:17 | INFO | P04 | Duplicate rows: 0
+2026-09-17 18:10:18 | INFO | P04 | -------------------------------
+2026-09-17 18:10:18 | INFO | P04 | 04. DESCRIBE numeric variables.
+2026-09-17 18:10:18 | INFO | P04 | -------------------------------
+2026-09-17 18:10:18 | DEBUG | P04 | 
+                count        mean         std      min        25%        50%         75%        max
+Duration (min)  200.0    3.473100    0.761401   1.5000   2.990000    3.42000    4.007500     5.4000
+Tempo (BPM)     200.0  113.895500   21.413665  67.6000  99.550000  114.10000  126.950000   178.1000
+Energy          200.0    0.680481    0.183624   0.0618   0.568625    0.70120    0.817975     1.0000
+Danceability    200.0    0.668082    0.153139   0.0100   0.582200    0.69945    0.774000     0.9368
+Loudness (dB)   200.0   -5.763700    2.480922 -18.3200  -7.227500   -5.39000   -4.000000    -1.0000
+Popularity      200.0   53.920000   20.031222   3.0000  39.000000   54.00000   70.000000    95.0000
+Streams (M)     200.0  165.773550  290.454513   0.1000  10.000000   44.19500  192.160000  1842.1800
+2026-09-17 18:10:18 | INFO | P04 | 
+                count        mean         std      min        25%        50%         75%        max
+Duration (min)  200.0    3.473100    0.761401   1.5000   2.990000    3.42000    4.007500     5.4000
+Tempo (BPM)     200.0  113.895500   21.413665  67.6000  99.550000  114.10000  126.950000   178.1000
+Energy          200.0    0.680481    0.183624   0.0618   0.568625    0.70120    0.817975     1.0000
+Danceability    200.0    0.668082    0.153139   0.0100   0.582200    0.69945    0.774000     0.9368
+Loudness (dB)   200.0   -5.763700    2.480922 -18.3200  -7.227500   -5.39000   -4.000000    -1.0000
+Popularity      200.0   53.920000   20.031222   3.0000  39.000000   54.00000   70.000000    95.0000
+Streams (M)     200.0  165.773550  290.454513   0.1000  10.000000   44.19500  192.160000  1842.1800
+2026-09-17 18:10:18 | INFO | P04 | -------------------------------
+2026-09-17 18:10:18 | INFO | P04 | 05. VISUALIZE distributions.
+2026-09-17 18:10:18 | INFO | P04 | -------------------------------
+2026-09-17 18:10:19 | INFO | P04 | -------------------------------
+2026-09-17 18:10:19 | INFO | P04 | 06. EXPLORE relationships (e.g., between 2 numeric variables).
+2026-09-17 18:10:19 | INFO | P04 | -------------------------------
+2026-09-17 18:10:19 | INFO | P04 | Correlation between Popularity and Streams (M): 0.648
+2026-09-17 18:10:19 | INFO | P04 | Correlation between Popularity and Streams (M): 0.648
+2026-09-17 18:10:19 | INFO | P04 | -------------------------------
+2026-09-17 18:10:19 | INFO | P04 | 07. SUMMARIZE what you found.
+2026-09-17 18:10:19 | INFO | P04 | -------------------------------
+2026-09-17 18:10:19 | INFO | P04 | CUSTOM OBSERVATIONS:
+    The dataset contains Spotify listening data.
+    Some observations (rows) are complete, but some are missing values.
+
+    
+    Based on this EDA, I would next like to review additional
+    relationships between other numeric variables.
+    Marimo (reactive notebook cells) might be a good choice
+    for additional exploration.
+    
+2026-09-17 18:10:19 | INFO | P04 | -------------------------------
+2026-09-17 18:10:19 | INFO | P04 | 08. DISPLAY the charts.
+2026-09-17 18:10:19 | INFO | P04 | -------------------------------
+2026-09-17 18:10:19 | INFO | P04 | In a script, call plt.show() at the end to display all charts.
+2026-09-17 18:10:19 | INFO | P04 | Close all chart windows (with the close button) to continue.
+2026-09-17 18:56:13 | INFO | P04 | === RUN START ===
+2026-09-17 18:56:13 | INFO | P04 | project=P04 - EXPLORATORY DATA ANALYSIS
+2026-09-17 18:56:13 | INFO | P04 | repo_dir=datafun-04-eda
+2026-09-17 18:56:13 | INFO | P04 | python=3.14.7
+2026-09-17 18:56:13 | INFO | P04 | os=Windows 11
+2026-09-17 18:56:13 | INFO | P04 | shell=powershell
+2026-09-17 18:56:13 | INFO | P04 | cwd=.
+2026-09-17 18:56:13 | INFO | P04 | github_actions=False
+2026-09-17 18:56:13 | INFO | P04 | ===================================
+2026-09-17 18:56:13 | INFO | P04 | START main()
+2026-09-17 18:56:13 | INFO | P04 | ===================================
+2026-09-17 18:56:13 | INFO | P04 | -------------------------------
+2026-09-17 18:56:13 | INFO | P04 | 01. LOAD the data.
+2026-09-17 18:56:13 | INFO | P04 | -------------------------------
+2026-09-17 18:56:13 | INFO | P04 | Loading dataset: data\spotify.csv
+2026-09-17 18:56:13 | INFO | P04 | -------------------------------
+2026-09-17 18:56:13 | INFO | P04 | 02. INSPECT the data.
+2026-09-17 18:56:13 | INFO | P04 | -------------------------------
+2026-09-17 18:56:13 | DEBUG | P04 | 
+DATA INSPECTION
+
+Grain:
+one song or track
+
+Shape:
+200 rows
+11 columns
+
+Columns:
+['Track', 'Artist', 'Album', 'Genre', 'Duration (min)', 'Tempo (BPM)', 'Energy', 'Danceability', 'Loudness (dB)', 'Popularity', 'Streams (M)']
+
+2026-09-17 18:56:13 | INFO | P04 | 
+DATA INSPECTION
+
+Grain:
+one song or track
+
+Shape:
+200 rows
+11 columns
+
+Columns:
+['Track', 'Artist', 'Album', 'Genre', 'Duration (min)', 'Tempo (BPM)', 'Energy', 'Danceability', 'Loudness (dB)', 'Popularity', 'Streams (M)']
+
+2026-09-17 18:56:13 | INFO | P04 | -------------------------------
+2026-09-17 18:56:13 | INFO | P04 | 03. CHECK data quality.
+2026-09-17 18:56:13 | INFO | P04 | -------------------------------
+2026-09-17 18:56:13 | DEBUG | P04 | 
+            column    dtype  non_missing_count  missing_count  missing_pct  unique_count
+0            Track      str                200              0          0.0           200
+1           Artist      str                200              0          0.0            50
+2            Album      str                200              0          0.0            93
+3            Genre      str                200              0          0.0            10
+4   Duration (min)  float64                200              0          0.0           142
+5      Tempo (BPM)  float64                200              0          0.0           174
+6           Energy  float64                200              0          0.0           194
+7     Danceability  float64                200              0          0.0           199
+8    Loudness (dB)  float64                200              0          0.0           178
+9       Popularity    int64                200              0          0.0            75
+10     Streams (M)  float64                200              0          0.0           179
+2026-09-17 18:56:13 | INFO | P04 | 
+            column    dtype  non_missing_count  missing_count  missing_pct  unique_count
+0            Track      str                200              0          0.0           200
+1           Artist      str                200              0          0.0            50
+2            Album      str                200              0          0.0            93
+3            Genre      str                200              0          0.0            10
+4   Duration (min)  float64                200              0          0.0           142
+5      Tempo (BPM)  float64                200              0          0.0           174
+6           Energy  float64                200              0          0.0           194
+7     Danceability  float64                200              0          0.0           199
+8    Loudness (dB)  float64                200              0          0.0           178
+9       Popularity    int64                200              0          0.0            75
+10     Streams (M)  float64                200              0          0.0           179
+2026-09-17 18:56:13 | DEBUG | P04 | 
+Track             0
+Artist            0
+Album             0
+Genre             0
+Duration (min)    0
+Tempo (BPM)       0
+Energy            0
+Danceability      0
+Loudness (dB)     0
+Popularity        0
+Streams (M)       0
+dtype: int64
+2026-09-17 18:56:13 | INFO | P04 | 
+Missing values:
+Track             0
+Artist            0
+Album             0
+Genre             0
+Duration (min)    0
+Tempo (BPM)       0
+Energy            0
+Danceability      0
+Loudness (dB)     0
+Popularity        0
+Streams (M)       0
+dtype: int64
+2026-09-17 18:56:13 | INFO | P04 | Duplicate rows detected: 0
+2026-09-17 18:56:13 | INFO | P04 | Duplicate rows: 0
+2026-09-17 18:56:13 | INFO | P04 | -------------------------------
+2026-09-17 18:56:13 | INFO | P04 | 04. DESCRIBE numeric variables.
+2026-09-17 18:56:13 | INFO | P04 | -------------------------------
+2026-09-17 18:56:13 | DEBUG | P04 | 
+                count        mean         std      min        25%        50%         75%        max
+Duration (min)  200.0    3.473100    0.761401   1.5000   2.990000    3.42000    4.007500     5.4000
+Tempo (BPM)     200.0  113.895500   21.413665  67.6000  99.550000  114.10000  126.950000   178.1000
+Energy          200.0    0.680481    0.183624   0.0618   0.568625    0.70120    0.817975     1.0000
+Danceability    200.0    0.668082    0.153139   0.0100   0.582200    0.69945    0.774000     0.9368
+Loudness (dB)   200.0   -5.763700    2.480922 -18.3200  -7.227500   -5.39000   -4.000000    -1.0000
+Popularity      200.0   53.920000   20.031222   3.0000  39.000000   54.00000   70.000000    95.0000
+Streams (M)     200.0  165.773550  290.454513   0.1000  10.000000   44.19500  192.160000  1842.1800
+2026-09-17 18:56:13 | INFO | P04 | 
+                count        mean         std      min        25%        50%         75%        max
+Duration (min)  200.0    3.473100    0.761401   1.5000   2.990000    3.42000    4.007500     5.4000
+Tempo (BPM)     200.0  113.895500   21.413665  67.6000  99.550000  114.10000  126.950000   178.1000
+Energy          200.0    0.680481    0.183624   0.0618   0.568625    0.70120    0.817975     1.0000
+Danceability    200.0    0.668082    0.153139   0.0100   0.582200    0.69945    0.774000     0.9368
+Loudness (dB)   200.0   -5.763700    2.480922 -18.3200  -7.227500   -5.39000   -4.000000    -1.0000
+Popularity      200.0   53.920000   20.031222   3.0000  39.000000   54.00000   70.000000    95.0000
+Streams (M)     200.0  165.773550  290.454513   0.1000  10.000000   44.19500  192.160000  1842.1800
+2026-09-17 18:56:13 | INFO | P04 | -------------------------------
+2026-09-17 18:56:13 | INFO | P04 | 05. VISUALIZE distributions.
+2026-09-17 18:56:13 | INFO | P04 | -------------------------------
+2026-09-17 18:56:14 | INFO | P04 | -------------------------------
+2026-09-17 18:56:14 | INFO | P04 | 06. EXPLORE relationships (e.g., between 2 numeric variables).
+2026-09-17 18:56:14 | INFO | P04 | -------------------------------
+2026-09-17 18:56:14 | INFO | P04 | Correlation between Popularity and Streams (M): 0.648
+2026-09-17 18:56:14 | INFO | P04 | Correlation between Popularity and Streams (M): 0.648
+2026-09-17 18:56:14 | INFO | P04 | -------------------------------
+2026-09-17 18:56:14 | INFO | P04 | 07. SUMMARIZE what you found.
+2026-09-17 18:56:14 | INFO | P04 | -------------------------------
+2026-09-17 18:56:14 | INFO | P04 | CUSTOM OBSERVATIONS:
+    The dataset contains Spotify listening data.
+    Some observations (rows) are complete, but some are missing values.
+
+    
+    Based on this EDA, I would next like to review additional
+    relationships between other numeric variables.
+    Marimo (reactive notebook cells) might be a good choice
+    for additional exploration.
+    
+2026-09-17 18:56:14 | INFO | P04 | -------------------------------
+2026-09-17 18:56:14 | INFO | P04 | 08. DISPLAY the charts.
+2026-09-17 18:56:14 | INFO | P04 | -------------------------------
+2026-09-17 18:56:14 | INFO | P04 | Charts saved to the docs/images directory.

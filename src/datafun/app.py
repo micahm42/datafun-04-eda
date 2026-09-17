@@ -285,9 +285,9 @@ def main() -> None:
     )
 
     # CUSTOM: Analyst must customize the Matplotlib Axes object with a title and axis labels.
-    relationship_ax.set_title("Penguin Flipper Length vs. Body Mass")
-    relationship_ax.set_xlabel("Flipper Length (mm)")
-    relationship_ax.set_ylabel("Body Mass (g)")
+   # relationship_ax.set_title("Penguin Flipper Length vs. Body Mass")
+   # relationship_ax.set_xlabel("Flipper Length (mm)")
+        #relationship_ax.set_ylabel("Body Mass (g)")
 
     save_chart(
         relationship_ax,
@@ -304,13 +304,10 @@ def main() -> None:
     # in a simple multi-line (triple-quoted) raw string (see the leading `r`).
 
     LOG.info(r"""CUSTOM OBSERVATIONS:
-    The dataset contains penguin measurements.
+    The dataset contains Spotify listening data.
     Some observations (rows) are complete, but some are missing values.
 
-    I reviewed the relationship between:
-    Flipper length vs. body mass
-    and it shows a positive relationship.
-
+    
     Based on this EDA, I would next like to review additional
     relationships between other numeric variables.
     Marimo (reactive notebook cells) might be a good choice
@@ -325,8 +322,7 @@ def main() -> None:
     # The client (like this script or a marimo notebook),
     # determines how and when to display the plots).
 
-    LOG.info("In a script, call plt.show() at the end to display all charts.")
-    LOG.info("Close all chart windows (with the close button) to continue.")
+    LOG.info("Charts saved to the docs/images directory.")
 
     plt.show()
 
