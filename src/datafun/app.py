@@ -93,40 +93,38 @@ CHART_DIR.mkdir(parents=True, exist_ok=True)
 
 # === DEFINE THE DATASET ===
 
-DATASET_NAME: Final[str] = "penguins"
+DATASET_NAME: Final[str] = "spotify"
+
+DATA_PATH: Final[Path] = Path("spotify.csv")
 
 # === DETERMINE WHAT ONE ROW REPRESENTS ===
 
-# This is the GRAIN of the dataset.
-# Grain answers:
-# What does one row represent?
-
-GRAIN: Final[str] = "one observed penguin"
+GRAIN: Final[str] = "one song or track"
 
 # === CHOOSE IMPORTANT NUMERIC VARIABLES ===
 
-# These are continuous numeric variables
-# we want to inspect during EDA.
-
 NUMERIC_COLUMNS: Final[list[str]] = [
-    "bill_length_mm",
-    "bill_depth_mm",
-    "flipper_length_mm",
-    "body_mass_g",
+    "Duration (min)",
+    "Tempo (BPM)",
+    "Energy",
+    "Danceability",
+    "Loudness (dB)",
+    "Popularity",
+    "Streams (M)",
 ]
 
 # === CHOOSE IMPORTANT CATEGORICAL VARIABLES ===
 
 CATEGORICAL_COLUMNS: Final[list[str]] = [
-    "species",
-    "island",
-    "sex",
+    "Artist",
+    "Album",
+    "Genre",
 ]
 
 # === CHOOSE ONE RELATIONSHIP TO EXPLORE ===
 
-X_COLUMN: Final[str] = "flipper_length_mm"
-Y_COLUMN: Final[str] = "body_mass_g"
+X_COLUMN: Final[str] = "Popularity"
+Y_COLUMN: Final[str] = "Streams (M)"
 
 
 # === DEFINE THE MAIN FUNCTION ===

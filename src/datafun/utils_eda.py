@@ -43,6 +43,7 @@ They do NOT decide what conclusions the analyst should make.
 
 from collections.abc import Sequence
 import logging
+from pathlib import Path
 
 import pandas as pd
 import seaborn as sns
@@ -51,25 +52,16 @@ import seaborn as sns
 
 
 def load_data(
-    *,
     dataset_name: str,
     log: logging.Logger,
 ) -> pd.DataFrame:
-    """Load a built-in Seaborn dataset,
-    log the shape, and return the DataFrame.
+    """Load the Spotify dataset from a CSV file."""
 
-    Args:
-        dataset_name: Name of the Seaborn dataset.
-        log: Logger used to report progress.
+    data_file_path: Path = Path("data") / f"{dataset_name}.csv"
 
-    Returns:
-        DataFrame containing the loaded data.
-    """
-    log.info(f"Loading Seaborn dataset: {dataset_name}")
+    log.info(f"Loading dataset: {data_file_path}")
 
-    df: pd.DataFrame = sns.load_dataset(dataset_name)
-
-    log.info(f"Loaded: {df.shape[0]} rows, {df.shape[1]} columns")
+    df: pd.DataFrame = pd.read_csv(data_file_path)
 
     return df
 

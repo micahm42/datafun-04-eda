@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>notebook</title>
+    <script type="module" crossorigin src="./assets/index-4n22QjCD.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-B0Z9INg1.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-CBDbhulC.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-CYIjoINj.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-xfs0Sn4r.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-BQrReHnR.js">
+    <link rel="modulepreload" crossorigin href="./assets/schemas-aTUejmFi.js">
+    <link rel="modulepreload" crossorigin href="./assets/isObject-BCaOs5rp.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-oX0TOjjx.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-Cmx0b_zA.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-aFmHgJZY.js">
+    <link rel="modulepreload" crossorigin href="./assets/isArrayLikeObject-DnwgSs_Z.js">
+    <link rel="modulepreload" crossorigin href="./assets/_initCloneObject-CM3WilQg.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseMerge-DLqSVasz.js">
+    <link rel="modulepreload" crossorigin href="./assets/objects-snlMn4yk.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-B74pBk57.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-92uWqz-P.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-Ci2dTZ72.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-D5Ywm7-q.js">
+    <link rel="modulepreload" crossorigin href="./assets/constants-BDbGiS7O.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-CrTnjj37.js">
+    <link rel="modulepreload" crossorigin href="./assets/session-Sz5nSFku.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-BlNM0caL.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-DB0hHKMi.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-ldLVeaqm.js">
+    <link rel="modulepreload" crossorigin href="./assets/fullscreen-BH2jz-F4.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DzCQtGkt.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-BSRA2YI9.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-Dh8EwhsF.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-CA-2mBs3.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-B7HeEoG2.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-BoA6XBpj.js">
+    <link rel="modulepreload" crossorigin href="./assets/context-Do8M9TDF.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-DHJ9s6Vk.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-nLt2y0Sw.js">
+    <link rel="modulepreload" crossorigin href="./assets/circle-ByJdIf5p.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-BUtPzKB4.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BtC9ym6k.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CZNULd6Z.js">
+    <link rel="modulepreload" crossorigin href="./assets/arrays-BqUx5USx.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-Haz_uxEL.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-D8kPgMKr.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-C49f7GXV.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-B_XmHROl.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DiYjQAhI.js">
+    <link rel="modulepreload" crossorigin href="./assets/marked.esm-B_3iMIUq.js">
+    <link rel="modulepreload" crossorigin href="./assets/strings-CReV1AYG.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-C6_IaFh7.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-B8pdsUrS.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-BUaJcygz.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-hGYJX0Ha.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-CloO6gbw.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-Bc-r3jsC.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-DgpSQhrP.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-DEbY281O.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-k9DpjH68.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-DpWHUGuF.js">
+    <link rel="modulepreload" crossorigin href="./assets/write-secret-modal-D6zoZgLY.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-C4J9gIE1.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-D_HX-0qx.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-BSgtkC2e.js">
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-HclGiUj8.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DkPPv0FB.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Dw9YRsCU.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-B0RXffUm.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Cx4BE7jC.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CKUpxYGQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-Dc5bKD4z.js">
+    <link rel="modulepreload" crossorigin href="./assets/paths-zcL04qUW.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-C-ri8BtY.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-Buhk-UgR.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es-DrVcFY1Q.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-Cp-G34Rz.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-DjNf4SIX.js">
+    <link rel="modulepreload" crossorigin href="./assets/_hasPath-BmRQipI0.js">
+    <link rel="modulepreload" crossorigin href="./assets/hasIn-yw4sIeJR.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseSet-gX6o3Pih.js">
+    <link rel="modulepreload" crossorigin href="./assets/pick-Bs4cJfJU.js">
+    <link rel="modulepreload" crossorigin href="./assets/errors-DzO-nXy-.js">
+    <link rel="modulepreload" crossorigin href="./assets/switch-DjXr9Y9D.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-BMXKNElG.js">
+    <link rel="modulepreload" crossorigin href="./assets/eye-off-CFuPxa9F.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-DlEomWzI.js">
+    <link rel="modulepreload" crossorigin href="./assets/extends-CvVTau-c.js">
+    <link rel="modulepreload" crossorigin href="./assets/esm-BHMOvJzM.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAddCell-DdB_uBif.js">
+    <link rel="modulepreload" crossorigin href="./assets/readonly-python-code-DpIyjHqY.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-LboTfNDv.js">
+    <link rel="modulepreload" crossorigin href="./assets/micromark-factory-space-D9Dr-k4J.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-5FQGJX7Z-CRg4xQWg.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-renderer-BZKlbm2Q.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-z8fuTE3w.js">
+    <link rel="modulepreload" crossorigin href="./assets/useRunCells-CX7oW5zy.js">
+    <link rel="modulepreload" crossorigin href="./assets/RenderHTML-DwhMAd9l.js">
+    <link rel="modulepreload" crossorigin href="./assets/blob-B2d_dHwI.js">
+    <link rel="modulepreload" crossorigin href="./assets/share-CPtBiNgr.js">
+    <link rel="modulepreload" crossorigin href="./assets/events-CbeVJ6OD.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-Di9TbuV9.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-CDVGFYfr.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-B-r81uZ6.js">
+    <link rel="modulepreload" crossorigin href="./assets/tabs-Cy1qXLzH.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-CKA5zVsM.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-C40jM9o4.js">
+    <link rel="modulepreload" crossorigin href="./assets/html-to-image-D6GUC5q6.js">
+    <link rel="modulepreload" crossorigin href="./assets/download-DMxOzI7b.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-CUK1W5bI.js">
+    <link rel="modulepreload" crossorigin href="./assets/refresh-cw-Bf-rx_aV.js">
+    <link rel="modulepreload" crossorigin href="./assets/tree-actions-CG5g7aUQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/ellipsis-Dfik_tuW.js">
+    <link rel="modulepreload" crossorigin href="./assets/external-link-Bp3BxyRA.js">
+    <link rel="modulepreload" crossorigin href="./assets/spinner-Ck-Hgfvj.js">
+    <link rel="modulepreload" crossorigin href="./assets/message-circle-BQB1AIAg.js">
+    <link rel="modulepreload" crossorigin href="./assets/hat-glasses-C8LSY3HT.js">
+    <link rel="modulepreload" crossorigin href="./assets/package-DPlscLzt.js">
+    <link rel="modulepreload" crossorigin href="./assets/datasource-DrODSIs0.js">
+    <link rel="modulepreload" crossorigin href="./assets/kbd-Cwh96ZBE.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dmKwNsrp.js">
+    <link rel="modulepreload" crossorigin href="./assets/useInstallPackage-DsD08SLK.js">
+    <link rel="modulepreload" crossorigin href="./assets/state-B6AklCzD.js">
+    <link rel="modulepreload" crossorigin href="./assets/cell-link-6burT2XF.js">
+    <link rel="modulepreload" crossorigin href="./assets/MarimoErrorOutput-DqpoYOvw.js">
+    <link rel="modulepreload" crossorigin href="./assets/VisuallyHidden-CBMDmozt.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDateFormatter-BiqAQ-zI.js">
+    <link rel="modulepreload" crossorigin href="./assets/en-US-yTIMUO13.js">
+    <link rel="modulepreload" crossorigin href="./assets/isValid-nQ3Iam8J.js">
+    <link rel="modulepreload" crossorigin href="./assets/dates-B58T85Jq.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-CNPGWpMu.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-Bq_nmf5u.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-Dm4DaIgg.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-AQmjV9CX.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-BG35uS_N.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-icons.esm-hr79-MCS.js">
+    <link rel="modulepreload" crossorigin href="./assets/emotion-is-prop-valid.esm-nLO-SoUf.js">
+    <link rel="modulepreload" crossorigin href="./assets/useIframeCapabilities-C7Di8f2y.js">
+    <link rel="modulepreload" crossorigin href="./assets/error-banner-Dw5YY9wq.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-49LGK4zG.js">
+    <link rel="modulepreload" crossorigin href="./assets/formats-C6s96nu2.js">
+    <link rel="modulepreload" crossorigin href="./assets/table-DmqOOjfe.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-resizable-panels.browser.esm-BSRAHC4P.js">
+    <link rel="modulepreload" crossorigin href="./assets/JsonOutput-CzIGPEZQ.js">
+    <link rel="modulepreload" crossorigin href="./assets/chart-no-axes-column-ChZdjJhj.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-function-DkZweMAs.js">
+    <link rel="modulepreload" crossorigin href="./assets/spec-DKsAmLTi.js">
+    <link rel="modulepreload" crossorigin href="./assets/semaphore-BjoL5P0h.js">
+    <link rel="modulepreload" crossorigin href="./assets/fileToBase64-NhpNrK5l.js">
+    <link rel="modulepreload" crossorigin href="./assets/useBoolean-BXC4CItZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/code-xml-B7x62Eeh.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-headphone-rFCxFRI8.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-DF8n85RA.js">
+    <link rel="modulepreload" crossorigin href="./assets/image-ab13yGv4.js">
+    <link rel="modulepreload" crossorigin href="./assets/file-icons-DdGYuADJ.js">
+    <link rel="modulepreload" crossorigin href="./assets/globe-BQf75qV_.js">
+    <link rel="modulepreload" crossorigin href="./assets/markdown-export-0rLbaq8b.js">
+    <link rel="modulepreload" crossorigin href="./assets/data-grid-types-DgHVN_Zz.js">
+    <link rel="modulepreload" crossorigin href="./assets/glide-utils-UGsrRHYj.js">
+    <link rel="modulepreload" crossorigin href="./assets/column-preview-riSXbYe_.js">
+    <link rel="modulepreload" crossorigin href="./assets/square-B58Ib8Ir.js">
+    <link rel="modulepreload" crossorigin href="./assets/triangle-alert-MihykDYG.js">
+    <link rel="modulepreload" crossorigin href="./assets/prop-types-Djf4O40e.js">
+    <link rel="modulepreload" crossorigin href="./assets/es-CrFhA96G.js">
+    <link rel="modulepreload" crossorigin href="./assets/renderShortcut-X-CJUSM8.js">
+    <link rel="modulepreload" crossorigin href="./assets/bundle.esm-DzY74mzC.js">
+    <link rel="modulepreload" crossorigin href="./assets/icons-CjLa9BiH.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDeepCompareMemoize-CLytDdMl.js">
+    <link rel="modulepreload" crossorigin href="./assets/pathUtils-Cryrlpma.js">
+    <link rel="modulepreload" crossorigin href="./assets/floating-outline-DaUHnl_e.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-D-c15Ks-.css">
+    <link rel="stylesheet" crossorigin href="./assets/markdown-renderer-B7zTpxjS.css">
+    <link rel="stylesheet" crossorigin href="./assets/JsonOutput-BQtz7-np.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-C7yAojRA.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
+        value: Object.freeze({
+            trusted: true,
+            notebookCode: "\"\"\"src/datafun/notebook.py - Reactive EDA notebook with Marimo.\n\nAuthor: Denise Case\nDate: 2026-08\n\nDOMAIN: Penguins\n\nExplore a dataset of penguins with a small reactive interface, reusing the\nsame EDA utilities (eda_vizkit) and visualization functions as the script\nproject.\n\nMarimo adds reactive controls. Every function below is a marimo cell; change a\nselected variable and the dependent chart updates automatically (no callbacks).\n\nRUN LOCALLY:\n\n  uv run marimo edit src/datafun/notebook.py     # edit\n  uv run marimo run  src/datafun/notebook.py     # run as an app (CTRL+c quits)\n\nDEPLOY AS A WASM PAGE IN THE DOCS SITE:\n\n  uv run marimo export html-wasm src/datafun/notebook.py \\\\\n      -o docs/notebook --mode run\n  # then place penguins.csv at docs/notebook/public/penguins.csv\n  # and link docs/notebook/index.html from the docs nav\n\nWASM DEPENDENCIES:\n\nUnder WebAssembly (emscripten) the browser has no project environment, so the\nfirst cell installs the third-party packages with micropip: eda_vizkit (this\nproject's own pure-Python helper, on PyPI) plus pandas.\nmatplotlib and marimo are already present in the marimo WASM runtime.\nLocally, micropip is skipped and the packages come from the uv-managed .venv.\n\nNO LOGGING:\n\nA browser-based WASM app has no persistent Python server to store log files,\nso this notebook configures no logging.\n\nPLAN CELLS FIRST\n\n1. Imports (installs WASM deps, returns shared imports and constants)\n2. Load data (its own cell; runs locally and under WASM)\n3. Opening title and introduction (Markdown)\n4. _choose_first_column\n5. _show_distribution\n6. _choose_second_column\n7. _show_relationship\n8. Closing (Markdown)\n\nNote: marimo triggers @app.cell functions automatically; we never call them.\nThe names starting with \"_\" are for our own organization; the engine ignores\nthem.\n\nHOW MARIMO NOTEBOOKS WORK\n\nEach cell is a FUNCTION.\nThe return value of one cell can be passed as an argument to another cell.\nWe never call the functions, so they don't need names other than `_` (underscore).\n(You can give them names if you want, but the notebook engine ignores them.)\n\nThe notebook is REACTIVE: when a cell's code or inputs change,\nthe notebook engine reruns that cell and every cell that depends on it.\n\nThe notebook is always CONSISTENT with outputs reflecting current inputs.\n\nThe first cell imports all dependencies, so the notebook is SELF-CONTAINED.\n\nAll later cells include their dependencies in their argument list.\nSome other cells return values that can be used in other cells.\nA cell displays the value of its last expression.\n\nA cell whose last line is an assignment or a bare return\n(like data and view cells) displays nothing;\nonly markdown, control, and render cells are meant to show.\n\nRULE: Each variable must be defined in exactly one cell.\nDefining the same name in two cells is a marimo error.\n\nINPUT WIDGETS/CONTROLS: A cell that builds an input widget\nresets that widget to its default every time the cell reruns.\nmarimo reruns a cell whenever any argument in its signature changes.\nSo a widget-building cell must depend only on what genuinely determines its options.\n\"\"\"\n\n# === ONLY THIS AT THE TOP OF THE FILE ===\n\nimport marimo\n\n__generated_with = \"0.24.2\"\napp = marimo.App(width=\"medium\")\n\n\n@app.cell\nasync def _():\n    \"\"\"Install WASM deps, import everything, and hand it to later cells.\n\n    This cell has no arguments: it is the root of the dependency graph.\n\n    Under WASM (emscripten) the browser has no project environment, so it\n    micropip-installs the third-party packages first:\n    eda_vizkit (this project's pure-Python helper, published to PyPI) and pandas.\n    matplotlib and marimo are already shipped in the marimo WASM runtime.\n    Locally the install is  skipped and the packages come from the .venv.\n\n    Returns DATASET_NAME, NUMERIC_COLUMNS, mo, pd,\n    show_numeric_distribution, and show_numeric_relationship.\n    \"\"\"\n    import sys\n\n    if sys.platform == \"emscripten\":\n        import micropip\n\n        await micropip.install([\"eda_vizkit\", \"pandas\"])\n\n    from eda_vizkit import (\n        show_numeric_distribution,\n        show_numeric_relationship,\n    )\n    import marimo as mo\n    import pandas as pd\n\n    DATASET_NAME = \"penguins\"\n\n    NUMERIC_COLUMNS = [\n        \"bill_length_mm\",\n        \"bill_depth_mm\",\n        \"flipper_length_mm\",\n        \"body_mass_g\",\n    ]\n    return (\n        DATASET_NAME,\n        NUMERIC_COLUMNS,\n        mo,\n        pd,\n        show_numeric_distribution,\n        show_numeric_relationship,\n        sys,\n    )\n\n\n@app.cell\ndef _(DATASET_NAME, mo, pd, sys):\n    \"\"\"Load the dataset and return it as `df`.\n\n    Two environments, one cell:\n    - Locally, pandas reads the CSV from data/raw.\n    - Under WASM (emscripten), Python runs in the browser, so Pyodide's\n      open_url() fetches the CSV from public/ and pandas reads its text.\n\n    Depends on `mo` (for notebook_location), `pd`, and `DATASET_NAME`. Reruns\n    only when those change, so the read does not repeat when a control is\n    touched. Returns `df` for the result cells.\n    \"\"\"\n    notebook_location = mo.notebook_location()\n\n    if notebook_location is None:\n        raise RuntimeError(\"Unable to determine notebook location.\")\n\n    filename = f\"{DATASET_NAME}.csv\"\n\n    if sys.platform == \"emscripten\":\n        from pyodide.http import open_url  # ty: ignore[unresolved-import]\n\n        data_url = notebook_location / \"public\" / filename\n        df = pd.read_csv(open_url(str(data_url)))\n    else:\n        data_path = notebook_location.parents[1] / \"data\" / \"raw\" / filename\n        df = pd.read_csv(data_path)\n    return (df,)\n\n\n@app.cell\ndef _(df, mo):\n    \"\"\"Render the opening title and instructions. Depends only on `mo`.\"\"\"\n    mo.md(r\"\"\"\n    # Reactive Exploratory Data Analysis\n\n    Explore the Palmer Penguins dataset interactively.\n\n    Use the controls below to change the variable being explored.\n    Marimo automatically updates dependent results.\n\n    [Project Source](https://github.com/denisecase/datafun-04-eda/blob/main/src/datafun/notebook.py)\n    | [Project Docs](https://denisecase.github.io/datafun-04-eda/)\n    \"\"\")\n\n    print (df.head())\n    return\n\n\n@app.cell\ndef _choose_first_column(NUMERIC_COLUMNS, mo):\n    \"\"\"Build the numeric-variable dropdown for the distribution.\n\n    Depends on `mo` and its fixed options `NUMERIC_COLUMNS`, and nothing the\n    user toggles - so this widget-building cell is not rerun by other controls\n    and never resets its selection once made.\n\n    Returns the `numeric_column` widget.\n    \"\"\"\n    numeric_column = mo.ui.dropdown(\n        options=NUMERIC_COLUMNS,\n        value=\"flipper_length_mm\",\n        label=\"Choose a numeric variable\",\n    )\n\n    # display\n    numeric_column\n    return (numeric_column,)\n\n\n@app.cell\ndef _show_distribution(df, numeric_column, show_numeric_distribution):\n    \"\"\"Plot the distribution of the selected numeric column.\n\n    Depends on `numeric_column` (the user's choice) plus `df` and the helper.\n    It consumes a control rather than creating one, so it is meant to rerun\n    whenever the selection changes - that is the reactive update.\n    \"\"\"\n    distribution_ax = show_numeric_distribution(\n        df,\n        column=numeric_column.value,\n    )\n\n    distribution_ax.set_title(f\"Distribution of {numeric_column.value}\")\n\n    # display\n    distribution_ax\n    return\n\n\n@app.cell\ndef _choose_second_column(NUMERIC_COLUMNS, mo):\n    \"\"\"Build the X and Y dropdowns for the relationship scatter.\n\n    Depends on `mo` and `NUMERIC_COLUMNS` only, so toggling other controls\n    does not rerun this cell or reset the chosen X and Y variables.\n\n    Returns the `x_column` and `y_column` widgets.\n    \"\"\"\n    x_column = mo.ui.dropdown(\n        options=NUMERIC_COLUMNS,\n        value=\"flipper_length_mm\",\n        label=\"X variable\",\n    )\n\n    y_column = mo.ui.dropdown(\n        options=NUMERIC_COLUMNS,\n        value=\"body_mass_g\",\n        label=\"Y variable\",\n    )\n\n    # hstack = horizontal stack; vstack = vertical stack\n    mo.vstack(\n        [\n            x_column,\n            y_column,\n        ]\n    )\n    return x_column, y_column\n\n\n@app.cell\ndef _show_relationship(df, show_numeric_relationship, x_column, y_column):\n    \"\"\"Plot the relationship between the selected X and Y columns.\n\n    Depends on `x_column` and `y_column` (the user's choices) plus `df` and\n    the helper. Consumes controls rather than creating them, so it reruns and\n    re-renders whenever either selection changes.\n    \"\"\"\n    relationship_ax = show_numeric_relationship(\n        df,\n        x=x_column.value,\n        y=y_column.value,\n    )\n\n    relationship_ax.set_title(f\"{y_column.value} by {x_column.value}\")\n\n    # display it\n    relationship_ax\n    return\n\n\n@app.cell\ndef _closing(mo, x_column, y_column):\n    \"\"\"Render the closing prompt, echoing the current X and Y choices.\n\n    Depends on `mo` and the current `x_column`/`y_column` values, so the\n    prompt text updates live as the selections change.\n    \"\"\"\n    mo.md(f\"\"\"\n    ## What do you notice?\n\n    Currently comparing:\n\n    - **X:** `{x_column.value}`\n    - **Y:** `{y_column.value}`\n\n    Look at the pattern.\n\n    Does the relationship appear:\n\n    - positive,\n    - negative,\n    - weak,\n    - strong,\n    - or unclear?\n\n    What question would you investigate next?\n    \"\"\")\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\n@app.cell\ndef _():\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
+<marimo-code hidden="">%22%22%22src%2Fdatafun%2Fnotebook.py%20-%20Reactive%20EDA%20notebook%20with%20Marimo.%0A%0AAuthor%3A%20Denise%20Case%0ADate%3A%202026-08%0A%0ADOMAIN%3A%20Penguins%0A%0AExplore%20a%20dataset%20of%20penguins%20with%20a%20small%20reactive%20interface%2C%20reusing%20the%0Asame%20EDA%20utilities%20(eda_vizkit)%20and%20visualization%20functions%20as%20the%20script%0Aproject.%0A%0AMarimo%20adds%20reactive%20controls.%20Every%20function%20below%20is%20a%20marimo%20cell%3B%20change%20a%0Aselected%20variable%20and%20the%20dependent%20chart%20updates%20automatically%20(no%20callbacks).%0A%0ARUN%20LOCALLY%3A%0A%0A%20%20uv%20run%20marimo%20edit%20src%2Fdatafun%2Fnotebook.py%20%20%20%20%20%23%20edit%0A%20%20uv%20run%20marimo%20run%20%20src%2Fdatafun%2Fnotebook.py%20%20%20%20%20%23%20run%20as%20an%20app%20(CTRL%2Bc%20quits)%0A%0ADEPLOY%20AS%20A%20WASM%20PAGE%20IN%20THE%20DOCS%20SITE%3A%0A%0A%20%20uv%20run%20marimo%20export%20html-wasm%20src%2Fdatafun%2Fnotebook.py%20%5C%5C%0A%20%20%20%20%20%20-o%20docs%2Fnotebook%20--mode%20run%0A%20%20%23%20then%20place%20penguins.csv%20at%20docs%2Fnotebook%2Fpublic%2Fpenguins.csv%0A%20%20%23%20and%20link%20docs%2Fnotebook%2Findex.html%20from%20the%20docs%20nav%0A%0AWASM%20DEPENDENCIES%3A%0A%0AUnder%20WebAssembly%20(emscripten)%20the%20browser%20has%20no%20project%20environment%2C%20so%20the%0Afirst%20cell%20installs%20the%20third-party%20packages%20with%20micropip%3A%20eda_vizkit%20(this%0Aproject's%20own%20pure-Python%20helper%2C%20on%20PyPI)%20plus%20pandas.%0Amatplotlib%20and%20marimo%20are%20already%20present%20in%20the%20marimo%20WASM%20runtime.%0ALocally%2C%20micropip%20is%20skipped%20and%20the%20packages%20come%20from%20the%20uv-managed%20.venv.%0A%0ANO%20LOGGING%3A%0A%0AA%20browser-based%20WASM%20app%20has%20no%20persistent%20Python%20server%20to%20store%20log%20files%2C%0Aso%20this%20notebook%20configures%20no%20logging.%0A%0APLAN%20CELLS%20FIRST%0A%0A1.%20Imports%20(installs%20WASM%20deps%2C%20returns%20shared%20imports%20and%20constants)%0A2.%20Load%20data%20(its%20own%20cell%3B%20runs%20locally%20and%20under%20WASM)%0A3.%20Opening%20title%20and%20introduction%20(Markdown)%0A4.%20_choose_first_column%0A5.%20_show_distribution%0A6.%20_choose_second_column%0A7.%20_show_relationship%0A8.%20Closing%20(Markdown)%0A%0ANote%3A%20marimo%20triggers%20%40app.cell%20functions%20automatically%3B%20we%20never%20call%20them.%0AThe%20names%20starting%20with%20%22_%22%20are%20for%20our%20own%20organization%3B%20the%20engine%20ignores%0Athem.%0A%0AHOW%20MARIMO%20NOTEBOOKS%20WORK%0A%0AEach%20cell%20is%20a%20FUNCTION.%0AThe%20return%20value%20of%20one%20cell%20can%20be%20passed%20as%20an%20argument%20to%20another%20cell.%0AWe%20never%20call%20the%20functions%2C%20so%20they%20don't%20need%20names%20other%20than%20%60_%60%20(underscore).%0A(You%20can%20give%20them%20names%20if%20you%20want%2C%20but%20the%20notebook%20engine%20ignores%20them.)%0A%0AThe%20notebook%20is%20REACTIVE%3A%20when%20a%20cell's%20code%20or%20inputs%20change%2C%0Athe%20notebook%20engine%20reruns%20that%20cell%20and%20every%20cell%20that%20depends%20on%20it.%0A%0AThe%20notebook%20is%20always%20CONSISTENT%20with%20outputs%20reflecting%20current%20inputs.%0A%0AThe%20first%20cell%20imports%20all%20dependencies%2C%20so%20the%20notebook%20is%20SELF-CONTAINED.%0A%0AAll%20later%20cells%20include%20their%20dependencies%20in%20their%20argument%20list.%0ASome%20other%20cells%20return%20values%20that%20can%20be%20used%20in%20other%20cells.%0AA%20cell%20displays%20the%20value%20of%20its%20last%20expression.%0A%0AA%20cell%20whose%20last%20line%20is%20an%20assignment%20or%20a%20bare%20return%0A(like%20data%20and%20view%20cells)%20displays%20nothing%3B%0Aonly%20markdown%2C%20control%2C%20and%20render%20cells%20are%20meant%20to%20show.%0A%0ARULE%3A%20Each%20variable%20must%20be%20defined%20in%20exactly%20one%20cell.%0ADefining%20the%20same%20name%20in%20two%20cells%20is%20a%20marimo%20error.%0A%0AINPUT%20WIDGETS%2FCONTROLS%3A%20A%20cell%20that%20builds%20an%20input%20widget%0Aresets%20that%20widget%20to%20its%20default%20every%20time%20the%20cell%20reruns.%0Amarimo%20reruns%20a%20cell%20whenever%20any%20argument%20in%20its%20signature%20changes.%0ASo%20a%20widget-building%20cell%20must%20depend%20only%20on%20what%20genuinely%20determines%20its%20options.%0A%22%22%22%0A%0A%23%20%3D%3D%3D%20ONLY%20THIS%20AT%20THE%20TOP%20OF%20THE%20FILE%20%3D%3D%3D%0A%0Aimport%20marimo%0A%0A__generated_with%20%3D%20%220.24.2%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22)%0A%0A%0A%40app.cell%0Aasync%20def%20_()%3A%0A%20%20%20%20%22%22%22Install%20WASM%20deps%2C%20import%20everything%2C%20and%20hand%20it%20to%20later%20cells.%0A%0A%20%20%20%20This%20cell%20has%20no%20arguments%3A%20it%20is%20the%20root%20of%20the%20dependency%20graph.%0A%0A%20%20%20%20Under%20WASM%20(emscripten)%20the%20browser%20has%20no%20project%20environment%2C%20so%20it%0A%20%20%20%20micropip-installs%20the%20third-party%20packages%20first%3A%0A%20%20%20%20eda_vizkit%20(this%20project's%20pure-Python%20helper%2C%20published%20to%20PyPI)%20and%20pandas.%0A%20%20%20%20matplotlib%20and%20marimo%20are%20already%20shipped%20in%20the%20marimo%20WASM%20runtime.%0A%20%20%20%20Locally%20the%20install%20is%20%20skipped%20and%20the%20packages%20come%20from%20the%20.venv.%0A%0A%20%20%20%20Returns%20DATASET_NAME%2C%20NUMERIC_COLUMNS%2C%20mo%2C%20pd%2C%0A%20%20%20%20show_numeric_distribution%2C%20and%20show_numeric_relationship.%0A%20%20%20%20%22%22%22%0A%20%20%20%20import%20sys%0A%0A%20%20%20%20if%20sys.platform%20%3D%3D%20%22emscripten%22%3A%0A%20%20%20%20%20%20%20%20import%20micropip%0A%0A%20%20%20%20%20%20%20%20await%20micropip.install(%5B%22eda_vizkit%22%2C%20%22pandas%22%5D)%0A%0A%20%20%20%20from%20eda_vizkit%20import%20(%0A%20%20%20%20%20%20%20%20show_numeric_distribution%2C%0A%20%20%20%20%20%20%20%20show_numeric_relationship%2C%0A%20%20%20%20)%0A%20%20%20%20import%20marimo%20as%20mo%0A%20%20%20%20import%20pandas%20as%20pd%0A%0A%20%20%20%20DATASET_NAME%20%3D%20%22penguins%22%0A%0A%20%20%20%20NUMERIC_COLUMNS%20%3D%20%5B%0A%20%20%20%20%20%20%20%20%22bill_length_mm%22%2C%0A%20%20%20%20%20%20%20%20%22bill_depth_mm%22%2C%0A%20%20%20%20%20%20%20%20%22flipper_length_mm%22%2C%0A%20%20%20%20%20%20%20%20%22body_mass_g%22%2C%0A%20%20%20%20%5D%0A%20%20%20%20return%20(%0A%20%20%20%20%20%20%20%20DATASET_NAME%2C%0A%20%20%20%20%20%20%20%20NUMERIC_COLUMNS%2C%0A%20%20%20%20%20%20%20%20mo%2C%0A%20%20%20%20%20%20%20%20pd%2C%0A%20%20%20%20%20%20%20%20show_numeric_distribution%2C%0A%20%20%20%20%20%20%20%20show_numeric_relationship%2C%0A%20%20%20%20%20%20%20%20sys%2C%0A%20%20%20%20)%0A%0A%0A%40app.cell%0Adef%20_(DATASET_NAME%2C%20mo%2C%20pd%2C%20sys)%3A%0A%20%20%20%20%22%22%22Load%20the%20dataset%20and%20return%20it%20as%20%60df%60.%0A%0A%20%20%20%20Two%20environments%2C%20one%20cell%3A%0A%20%20%20%20-%20Locally%2C%20pandas%20reads%20the%20CSV%20from%20data%2Fraw.%0A%20%20%20%20-%20Under%20WASM%20(emscripten)%2C%20Python%20runs%20in%20the%20browser%2C%20so%20Pyodide's%0A%20%20%20%20%20%20open_url()%20fetches%20the%20CSV%20from%20public%2F%20and%20pandas%20reads%20its%20text.%0A%0A%20%20%20%20Depends%20on%20%60mo%60%20(for%20notebook_location)%2C%20%60pd%60%2C%20and%20%60DATASET_NAME%60.%20Reruns%0A%20%20%20%20only%20when%20those%20change%2C%20so%20the%20read%20does%20not%20repeat%20when%20a%20control%20is%0A%20%20%20%20touched.%20Returns%20%60df%60%20for%20the%20result%20cells.%0A%20%20%20%20%22%22%22%0A%20%20%20%20notebook_location%20%3D%20mo.notebook_location()%0A%0A%20%20%20%20if%20notebook_location%20is%20None%3A%0A%20%20%20%20%20%20%20%20raise%20RuntimeError(%22Unable%20to%20determine%20notebook%20location.%22)%0A%0A%20%20%20%20filename%20%3D%20f%22%7BDATASET_NAME%7D.csv%22%0A%0A%20%20%20%20if%20sys.platform%20%3D%3D%20%22emscripten%22%3A%0A%20%20%20%20%20%20%20%20from%20pyodide.http%20import%20open_url%20%20%23%20ty%3A%20ignore%5Bunresolved-import%5D%0A%0A%20%20%20%20%20%20%20%20data_url%20%3D%20notebook_location%20%2F%20%22public%22%20%2F%20filename%0A%20%20%20%20%20%20%20%20df%20%3D%20pd.read_csv(open_url(str(data_url)))%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20data_path%20%3D%20notebook_location.parents%5B1%5D%20%2F%20%22data%22%20%2F%20%22raw%22%20%2F%20filename%0A%20%20%20%20%20%20%20%20df%20%3D%20pd.read_csv(data_path)%0A%20%20%20%20return%20(df%2C)%0A%0A%0A%40app.cell%0Adef%20_(df%2C%20mo)%3A%0A%20%20%20%20%22%22%22Render%20the%20opening%20title%20and%20instructions.%20Depends%20only%20on%20%60mo%60.%22%22%22%0A%20%20%20%20mo.md(r%22%22%22%0A%20%20%20%20%23%20Reactive%20Exploratory%20Data%20Analysis%0A%0A%20%20%20%20Explore%20the%20Palmer%20Penguins%20dataset%20interactively.%0A%0A%20%20%20%20Use%20the%20controls%20below%20to%20change%20the%20variable%20being%20explored.%0A%20%20%20%20Marimo%20automatically%20updates%20dependent%20results.%0A%0A%20%20%20%20%5BProject%20Source%5D(https%3A%2F%2Fgithub.com%2Fdenisecase%2Fdatafun-04-eda%2Fblob%2Fmain%2Fsrc%2Fdatafun%2Fnotebook.py)%0A%20%20%20%20%7C%20%5BProject%20Docs%5D(https%3A%2F%2Fdenisecase.github.io%2Fdatafun-04-eda%2F)%0A%20%20%20%20%22%22%22)%0A%0A%20%20%20%20print%20(df.head())%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_choose_first_column(NUMERIC_COLUMNS%2C%20mo)%3A%0A%20%20%20%20%22%22%22Build%20the%20numeric-variable%20dropdown%20for%20the%20distribution.%0A%0A%20%20%20%20Depends%20on%20%60mo%60%20and%20its%20fixed%20options%20%60NUMERIC_COLUMNS%60%2C%20and%20nothing%20the%0A%20%20%20%20user%20toggles%20-%20so%20this%20widget-building%20cell%20is%20not%20rerun%20by%20other%20controls%0A%20%20%20%20and%20never%20resets%20its%20selection%20once%20made.%0A%0A%20%20%20%20Returns%20the%20%60numeric_column%60%20widget.%0A%20%20%20%20%22%22%22%0A%20%20%20%20numeric_column%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20options%3DNUMERIC_COLUMNS%2C%0A%20%20%20%20%20%20%20%20value%3D%22flipper_length_mm%22%2C%0A%20%20%20%20%20%20%20%20label%3D%22Choose%20a%20numeric%20variable%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20%23%20display%0A%20%20%20%20numeric_column%0A%20%20%20%20return%20(numeric_column%2C)%0A%0A%0A%40app.cell%0Adef%20_show_distribution(df%2C%20numeric_column%2C%20show_numeric_distribution)%3A%0A%20%20%20%20%22%22%22Plot%20the%20distribution%20of%20the%20selected%20numeric%20column.%0A%0A%20%20%20%20Depends%20on%20%60numeric_column%60%20(the%20user's%20choice)%20plus%20%60df%60%20and%20the%20helper.%0A%20%20%20%20It%20consumes%20a%20control%20rather%20than%20creating%20one%2C%20so%20it%20is%20meant%20to%20rerun%0A%20%20%20%20whenever%20the%20selection%20changes%20-%20that%20is%20the%20reactive%20update.%0A%20%20%20%20%22%22%22%0A%20%20%20%20distribution_ax%20%3D%20show_numeric_distribution(%0A%20%20%20%20%20%20%20%20df%2C%0A%20%20%20%20%20%20%20%20column%3Dnumeric_column.value%2C%0A%20%20%20%20)%0A%0A%20%20%20%20distribution_ax.set_title(f%22Distribution%20of%20%7Bnumeric_column.value%7D%22)%0A%0A%20%20%20%20%23%20display%0A%20%20%20%20distribution_ax%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_choose_second_column(NUMERIC_COLUMNS%2C%20mo)%3A%0A%20%20%20%20%22%22%22Build%20the%20X%20and%20Y%20dropdowns%20for%20the%20relationship%20scatter.%0A%0A%20%20%20%20Depends%20on%20%60mo%60%20and%20%60NUMERIC_COLUMNS%60%20only%2C%20so%20toggling%20other%20controls%0A%20%20%20%20does%20not%20rerun%20this%20cell%20or%20reset%20the%20chosen%20X%20and%20Y%20variables.%0A%0A%20%20%20%20Returns%20the%20%60x_column%60%20and%20%60y_column%60%20widgets.%0A%20%20%20%20%22%22%22%0A%20%20%20%20x_column%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20options%3DNUMERIC_COLUMNS%2C%0A%20%20%20%20%20%20%20%20value%3D%22flipper_length_mm%22%2C%0A%20%20%20%20%20%20%20%20label%3D%22X%20variable%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20y_column%20%3D%20mo.ui.dropdown(%0A%20%20%20%20%20%20%20%20options%3DNUMERIC_COLUMNS%2C%0A%20%20%20%20%20%20%20%20value%3D%22body_mass_g%22%2C%0A%20%20%20%20%20%20%20%20label%3D%22Y%20variable%22%2C%0A%20%20%20%20)%0A%0A%20%20%20%20%23%20hstack%20%3D%20horizontal%20stack%3B%20vstack%20%3D%20vertical%20stack%0A%20%20%20%20mo.vstack(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20x_column%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20y_column%2C%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20)%0A%20%20%20%20return%20x_column%2C%20y_column%0A%0A%0A%40app.cell%0Adef%20_show_relationship(df%2C%20show_numeric_relationship%2C%20x_column%2C%20y_column)%3A%0A%20%20%20%20%22%22%22Plot%20the%20relationship%20between%20the%20selected%20X%20and%20Y%20columns.%0A%0A%20%20%20%20Depends%20on%20%60x_column%60%20and%20%60y_column%60%20(the%20user's%20choices)%20plus%20%60df%60%20and%0A%20%20%20%20the%20helper.%20Consumes%20controls%20rather%20than%20creating%20them%2C%20so%20it%20reruns%20and%0A%20%20%20%20re-renders%20whenever%20either%20selection%20changes.%0A%20%20%20%20%22%22%22%0A%20%20%20%20relationship_ax%20%3D%20show_numeric_relationship(%0A%20%20%20%20%20%20%20%20df%2C%0A%20%20%20%20%20%20%20%20x%3Dx_column.value%2C%0A%20%20%20%20%20%20%20%20y%3Dy_column.value%2C%0A%20%20%20%20)%0A%0A%20%20%20%20relationship_ax.set_title(f%22%7By_column.value%7D%20by%20%7Bx_column.value%7D%22)%0A%0A%20%20%20%20%23%20display%20it%0A%20%20%20%20relationship_ax%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_closing(mo%2C%20x_column%2C%20y_column)%3A%0A%20%20%20%20%22%22%22Render%20the%20closing%20prompt%2C%20echoing%20the%20current%20X%20and%20Y%20choices.%0A%0A%20%20%20%20Depends%20on%20%60mo%60%20and%20the%20current%20%60x_column%60%2F%60y_column%60%20values%2C%20so%20the%0A%20%20%20%20prompt%20text%20updates%20live%20as%20the%20selections%20change.%0A%20%20%20%20%22%22%22%0A%20%20%20%20mo.md(f%22%22%22%0A%20%20%20%20%23%23%20What%20do%20you%20notice%3F%0A%0A%20%20%20%20Currently%20comparing%3A%0A%0A%20%20%20%20-%20**X%3A**%20%60%7Bx_column.value%7D%60%0A%20%20%20%20-%20**Y%3A**%20%60%7By_column.value%7D%60%0A%0A%20%20%20%20Look%20at%20the%20pattern.%0A%0A%20%20%20%20Does%20the%20relationship%20appear%3A%0A%0A%20%20%20%20-%20positive%2C%0A%20%20%20%20-%20negative%2C%0A%20%20%20%20-%20weak%2C%0A%20%20%20%20-%20strong%2C%0A%20%20%20%20-%20or%20unclear%3F%0A%0A%20%20%20%20What%20question%20would%20you%20investigate%20next%3F%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <script data-marimo="true">
+      Object.defineProperty(window, "__MARIMO_MOUNT_CONFIG__", {
+        value: Object.freeze({
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "read",
+            "version": "0.24.2",
+            "serverToken": "unused",
+            "config": {"ai": {"allow_provider_config": true, "custom_providers": {}, "enabled": true, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "auto_close_pairs": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "code_lens": true, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": true, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "uv"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"sql_output": "auto", "width": "medium"},
+            "layout": null,
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null
+        }),
+        writable: false,
+        configurable: false,
+      });
+    </script>
+  </body>
+</html>

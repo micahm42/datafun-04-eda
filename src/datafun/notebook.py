@@ -87,7 +87,7 @@ So a widget-building cell must depend only on what genuinely determines its opti
 
 import marimo
 
-__generated_with = "0.24.0"
+__generated_with = "0.24.2"
 app = marimo.App(width="medium")
 
 
@@ -127,6 +127,7 @@ async def _():
         "bill_depth_mm",
         "flipper_length_mm",
         "body_mass_g",
+    
     ]
     return (
         DATASET_NAME,
@@ -171,7 +172,7 @@ def _(DATASET_NAME, mo, pd, sys):
 
 
 @app.cell
-def _(mo):
+def _(df, mo):
     """Render the opening title and instructions. Depends only on `mo`."""
     mo.md(r"""
     # Reactive Exploratory Data Analysis
@@ -184,6 +185,9 @@ def _(mo):
     [Project Source](https://github.com/denisecase/datafun-04-eda/blob/main/src/datafun/notebook.py)
     | [Project Docs](https://denisecase.github.io/datafun-04-eda/)
     """)
+
+    print (df.head())
+
     return
 
 
